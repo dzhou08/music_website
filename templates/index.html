@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Skyline High School Music</title>
+  <link rel='stylesheet' type='text/css' href='/static/styles.css'>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="js/respond.js"></script>
+  <script>
+    function showHiddenDiv() {
+      var hiddenDiv = document.getElementById("hidden-div");
+      if (hiddenDiv.style.display == "none") {
+        hiddenDiv.style.display = "block";
+      } else {
+        hiddenDiv.style.display = "none";
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class='container'>
+    <h1 class='title'>Skyline High School Music</h1>
+    <div class='card-container'>
+      <div class='card blue-gradient'>
+        <form action='/upload' method='post' enctype='multipart/form-data' onsubmit="showHiddenDiv()">
+          <label for='spreadsheet_id'>Google Spreadsheet ID:</label>
+          <i class="far fa-question-circle fa-spin" style="color: #3a1895;" data-toggle="modal" data-target="#myModal"></i>
+          <br>
+          <input type='text' id='spreadsheet_id' name='spreadsheet_id' placeholder='Enter spreadsheet ID here' required>
+          <br>
+          <br>
+          <label for='band_type'>Band Type:</label>
+          <br>
+          <input type='text' id='band_type' name='band_type' placeholder='Enter band type here (varsity, concert, or symphony)' required>
+          <br>
+          <br>
+          <label for='file'>Upload music piece:</label>
+          <input type='file' id='file' name='file'>
+          <br>
+          <input type='submit' value='Submit'>
+        </form>
+      </div>
+    </div>
+    <div id="hidden-div" style="display:none">
+      <div class="centered-container">
+        <img src="/static/svg-loaders/grid.svg" aria-label="processing"/>
+      </div>
+    </div>
+    <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Instructions</h4>
+        </div>
+        <div class="modal-body">
+        <pre>
+        1. Copy your spreadsheet link url. 
+        2. The spreadsheet ID will be between 'd/' and '/edit', e.g. https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit#gid=0
+        </pre>  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class='music-notes-container'>
+    <img src='/static/music_notes.jpg' alt='Music Notes' class='music-notes'>
+  </div>
+</body>
+</html>

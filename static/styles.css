@@ -1,0 +1,108 @@
+/* styles.css */
+
+@font-face {
+  font-family: 'Belda';
+  src: url('/static/fonts/Belda_font.otf') format('opentype');
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.title {
+  font-family: 'Belda', Arial, sans-serif;
+  font-size: 48px;
+  text-align: center;
+  margin-top: -100px; /* Adjust the margin-top value to position the title higher */
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between; /* Adjust the spacing between the boxes */
+  align-items: center;
+  margin-top: 50px;
+}
+
+.card {
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  flex: 1;
+  min-height: 350px;
+  max-height: 350px;
+  min-width: 600px; /* Adjust the minimum width of the boxes */
+  max-width: 600px; /* Adjust the maximum width of the boxes */
+}
+
+.blue-gradient {
+  background: linear-gradient(to bottom right, #ADD8E6, #0084D8);
+}  
+
+.card input[type='text'],
+.card input[type='file'] {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.card input[type='submit'] {
+  padding: 10px 20px;
+  background-color: #ff67a3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card input[type='submit']:hover {
+  background-color: #ff4c93;
+}
+
+.music-notes-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.music-notes {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.centered-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*filter: blur(5px);*/
+  z-index: 1;
+}
+
+.centered-container img {
+  display: block;
+  margin: 0 auto;
+}
+
+.hidden {
+  display: none;
+}
